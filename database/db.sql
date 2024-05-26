@@ -38,6 +38,7 @@ INSERT INTO psychiatrists (name, hospital_id) VALUES ('Dr. Meera Desai', 1);
 INSERT INTO psychiatrists (name, hospital_id) VALUES ('Dr. Vikram Patel', 1);
 INSERT INTO psychiatrists (name, hospital_id) VALUES ('Dr. Anjali Nair', 1);
 INSERT INTO psychiatrists (name, hospital_id) VALUES ('Dr. Arjun Singh', 1);
+INSERT INTO psychiatrists (name, hospital_id) VALUES ('Dr. Monu Sharma', 1);
 
 -- Insert 5 psychiatrists for Jawaharlal Nehru Medical College and Hospital
 INSERT INTO psychiatrists (name, hospital_id) VALUES ('Dr. Kavita Rao', 2);
