@@ -1,7 +1,7 @@
 const { validationResult } = require("express-validator");
 const aws = require("aws-sdk");
 const fs = require("fs");
-const { uploadsLocation } = require("../../constants.json");
+const { fileUploadsFolder } = require("../../constants.json");
 const { db } = require("../db_connection");
 const { hash_password, execute_use_database_query } = require("../utils");
 
@@ -89,7 +89,7 @@ const register_patient = async (req, res) => {
         } else {
           console.log("Valid request. Starting registration process ...");
           const fileContent = fs.readFileSync(
-            `${uploadsLocation}${file.filename}`
+            `${fileUploadsFolder}/${file.filename}`
           );
           const s3UploadParams = {
             Bucket: process.env.S3_BUCKET_NAME,
@@ -119,7 +119,7 @@ const register_patient = async (req, res) => {
           };
         }
       }
-      fs.unlinkSync(`${uploadsLocation}${file.filename}`);
+      fs.unlinkSync(`${fileUploadsFolder}/${file.filename}`);
       console.log("Successfully deleted file from local folder");
     }
   } catch (err) {

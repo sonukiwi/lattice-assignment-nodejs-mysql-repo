@@ -9,10 +9,11 @@ const {
 const {
   registerPatientValidator,
 } = require("../validators/registerPatientValidator");
+const path = require("path");
 
 const storage = multer.diskStorage({
   destination: (_, __, cb) => {
-    cb(null, constants.uploadsLocation); // directory where files will be saved
+    cb(null, path.join(__dirname, `../../${constants.fileUploadsFolder}`)); // directory where files will be saved
   },
   filename: (_, file, cb) => {
     cb(null, `${Date.now()}-${file.originalname}`); // unique file name
