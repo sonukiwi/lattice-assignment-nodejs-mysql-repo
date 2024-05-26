@@ -119,6 +119,8 @@ const register_patient = async (req, res) => {
           };
         }
       }
+      fs.unlinkSync(`${uploadsLocation}${file.filename}`);
+      console.log("Successfully deleted file from local folder");
     }
   } catch (err) {
     console.error(err);
